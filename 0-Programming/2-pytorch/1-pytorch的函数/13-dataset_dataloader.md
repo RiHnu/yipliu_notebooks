@@ -30,3 +30,12 @@ drop_last:
 
 ## shuffle
 如果设置为 True: 数据将在每个 epoch 被重新打乱
+
+
+
+Dataset + Dataloader 组合缺点: 
+>However, this approach might require you to store the complete data in the memory (you can get away with it by utilizing hdf5 files) which makes it infeasible to work with when we have to read data from very big files.
+
+[IterableDataset](https://medium.com/swlh/how-to-use-pytorch-dataloaders-to-work-with-enormously-large-text-files-bbd672e955a0)
+
+https://medium.com/speechmatics/how-to-build-a-streaming-dataloader-with-pytorch-a66dd891d9dd

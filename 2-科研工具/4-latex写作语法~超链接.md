@@ -68,3 +68,13 @@ m{1cm} 是第二列，第三列的长度
 
 ## description
 描述性列表
+
+
+## 插入图片参数
+
+\includegraphics[width=\textwidth]: 宽度和页面相同
+
+\linewidth	Width of the line in the current environment.
+
+
+如果只提供 width, 那么 height 将会等比例变化

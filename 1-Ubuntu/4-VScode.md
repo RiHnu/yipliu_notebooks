@@ -32,3 +32,6 @@ Host Server
 screen -S : 指定 screen 的名称
 
 screen -r: 回复screen
+
+
+新版本的 VScode 放弃了对 python3.6的 debug 支持

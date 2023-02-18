@@ -13,6 +13,8 @@ def training_step(self, batch, batch_idx):
 
 **logger**: Logs to the logger
 
+**reduc_fx**: 
+
 
 ## NOTE
 

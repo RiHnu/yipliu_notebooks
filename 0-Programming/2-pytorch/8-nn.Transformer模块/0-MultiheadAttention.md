@@ -108,3 +108,44 @@ return attn_output.transpose(1, 0), attn_output_weights
 else:
 return attn_output, attn_output_weights
 ```
+
+
+# key_padding_mask 和 attn_mask 的区别
+
+## key_padding_mask
+[N, S] 对于 输入的 input, 它的padding指被忽略.  这个 key_padding_mask 用于忽略 sentence 中的padding
+
+`源码` 
+
+```python
+if key_padding_mask is not None:
+    assert key_padding_mask.size(0) == bsz
+    assert key_padding_mask.size(1) == src_len
+
+attn_output_weights = torch.bmm(q, k.transpose(1, 2))
+attn_output_weights = attn_output_weights.view(bsz, self.num_heads, tgt_len, src_len)
+attn_output_weights = attn_output_weights.masked_fill(
+                key_padding_mask.unsqueeze(1).unsqueeze(2),
+                float('-inf'),
+            )
+"""
+attn_output_weights 是 Q 和 K 的乘积, shape =[B, num_head, tgt_len, src_len]
+key_padding_mask.unsqueeze(1).unsqueeze(2) 的 shape = [B, 1, 1, S]
+
+masked_fill 对 key_padding_mask 位置为0的填充0
+"""
+```
+## attn_mask 
+> 阻止对 某些位置的元素  attention
+
+[L, S]
+
+**源码**
+
+```python
+if attn_mask.dim() == 2:
+    attn_mask = attn_mask.unsqueeze(0) # [1, L, S]
+    attn_output_weights.masked_fill_(attn_mask, float('-inf'))  # 也是进行填充, 0的位置填充为 -inf
+```
+
+因此, 构造 attn_mask 即可 忽略某些位置的值
