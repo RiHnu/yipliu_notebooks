@@ -17,4 +17,13 @@ contiguous()
 
 - 若都是 2-D 那么进行 矩阵乘
 
+```python
+tensorA @ tensorB
+```
 
+
+[einsum](https://zhuanlan.zhihu.com/p/361209187)
+
+c = torch.einsum("ik,kj->ij", [a, b])
+
+`@` 是矩阵乘法.  [5, 3] @ [3, 10] = [5, 10]

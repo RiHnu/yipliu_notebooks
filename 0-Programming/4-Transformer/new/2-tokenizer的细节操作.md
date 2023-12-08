@@ -10,3 +10,7 @@ I 对应于 id 0
 love 对应于 id 1
 hunan 对应于 id 2
 universtasa 被分割成了三块 
+
+```python
+RobertaTokenizerFast.from_pretrained(f'{self.data_path}roberta-base/', local_files_only=True)
+```

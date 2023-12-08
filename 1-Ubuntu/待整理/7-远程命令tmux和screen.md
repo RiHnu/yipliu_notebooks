@@ -22,4 +22,4 @@ tmux kill-session -t session_name
 
 ## 进入某个会话
 
-tmux attach -t session_name
+**tmux** attach -t session_name

@@ -5,7 +5,20 @@
 >Win10: C:\Users\your-user\.ssh\id_rsa.pub
 
 **Step 2:** 赋予权限
+**第一步**
+把 win 中的公匙 `C:\Users\xx\.ssh\id_rsa-remote-ssh.pub`  复制到 ubuntu 中 `.ssh` 文件夹中. 
 
+**第二步**
+在服务器中执行
+```
+cat id_rsa-remote-ssh.pub >> authorized_keys
+```
+chmod 700 ./.ssh
+chmod 600 ./.ssh/authorized_keys
+```
+
+**第三步***
+删除 win 中 known_hosts 中对于IP的记录
 
 **Step 3:** 本地 config 文件配置
 >C:\Users\your-user\.ssh\cofing

@@ -41,7 +41,6 @@
 
 ""sudo hwclock -s""
 
-2. 检查当前使用显卡[型号](https://www.howtogeek.com/508993/how-to-check-which-gpu-is-installed-on-linux/)
 
 # 4. 卸载Ubuntu
 参考[博客](https://zhuanlan.zhihu.com/p/134293931)
